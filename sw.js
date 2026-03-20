@@ -12,7 +12,6 @@ const ASSETS = [
   '/IELTS_A0_Lesson7.html',
   '/IELTS_A0_Lesson8.html',
 ];
-
 // Установка — кешируем всё
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -20,7 +19,6 @@ self.addEventListener('install', e => {
   );
   self.skipWaiting();
 });
-
 // Активация — удаляем старые кеши
 self.addEventListener('activate', e => {
   e.waitUntil(
@@ -30,9 +28,11 @@ self.addEventListener('activate', e => {
   );
   self.clients.claim();
 });
-
 // Fetch — сначала кеш, потом сеть
 self.addEventListener('fetch', e => {
+  // Только GET запросы можно кешировать
+  if (e.request.method !== 'GET') return;
+
   e.respondWith(
     caches.match(e.request).then(cached => {
       if (cached) return cached;
