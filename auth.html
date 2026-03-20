@@ -168,7 +168,7 @@ async function doGoogle() {
         email: result.user.email,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         level: 'A0', xp: 0, streak: 0, lastActive: null,
-        access: { a0: false }
+        access: { a0: true, a1: true }
       });
     }
     await afterLogin();
