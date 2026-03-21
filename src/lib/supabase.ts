@@ -1,13 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl =
+  import.meta.env.VITE_SUPABASE_URL || "https://xxxxx.supabase.co";
 
-console.log('SUPABASE URL:', supabaseUrl);
-console.log('SUPABASE KEY:', supabaseAnonKey);
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('❌ Missing Supabase env variables');
-}
+const supabaseAnonKey =
+  import.meta.env.VITE_SUPABASE_ANON_KEY || "ТВОЙ_ANON_KEY_СЮДА";
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
