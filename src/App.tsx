@@ -1,7 +1,7 @@
 export default function App() {
   return (
-    <div style={{ padding: 40, fontSize: 28 }}>
-      🚀 APP RENDER TEST OK
+    <div style={{ color: "white", background: "black", padding: 20 }}>
+      ATOC WORKING 🚀
     </div>
   );
 }
